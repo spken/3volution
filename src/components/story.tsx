@@ -29,8 +29,7 @@ export function Story({ t }: { t: Dictionary["story"] }) {
 
           <div className="flex flex-col justify-center lg:col-span-5 lg:col-start-8">
             <Reveal>
-              <p className="eyebrow mb-6 flex items-center gap-3 text-latte">
-                <span className="h-px w-10 bg-current" />
+              <p className="eyebrow mb-6 text-latte">
                 {t.eyebrow}
               </p>
             </Reveal>

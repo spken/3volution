@@ -11,8 +11,7 @@ export function Visit({ t }: { t: Dictionary["visit"] }) {
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="eyebrow mb-6 flex items-center gap-3 text-mocha">
-              <span className="h-px w-10 bg-current" />
+            <p className="eyebrow mb-6 text-mocha">
               {t.eyebrow}
             </p>
           </Reveal>
@@ -50,8 +49,7 @@ export function Visit({ t }: { t: Dictionary["visit"] }) {
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed text-caramel">
-                <span className="mt-1 size-1.5 shrink-0 rounded-full bg-caramel" />
+              <p className="mt-4 text-xs leading-relaxed text-caramel">
                 {t.hoursNote}
               </p>
             </Reveal></div>

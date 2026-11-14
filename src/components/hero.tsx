@@ -15,8 +15,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
       <div className="grid items-end gap-12 lg:grid-cols-12 lg:gap-8">
         {/* Copy */}
         <div className="relative z-10 lg:col-span-7">
-          <p className="eyebrow mb-8 flex animate-fade items-center gap-3 text-mocha" style={d(150)}>
-            <span className="h-px w-10 bg-current" />
+          <p className="eyebrow mb-8 animate-fade text-mocha" style={d(150)}>
             {t.eyebrow}
           </p>
 
@@ -119,10 +118,7 @@ export function Hero({ t }: { t: Dictionary["hero"] }) {
         <span className="hidden sm:inline">
           {site.street}, {site.zip} {site.city}
         </span>
-        <span className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-caramel" />
-          {t.note}
-        </span>
+        <span>{t.note}</span>
       </div>
     </section>
   );

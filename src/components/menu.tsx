@@ -30,19 +30,12 @@ export function Menu({ t }: { t: Dictionary["menu"] }) {
       <div className="mb-14 flex flex-col justify-between gap-8 lg:mb-20 lg:flex-row lg:items-end">
         <div>
           <Reveal>
-            <p className="eyebrow mb-6 flex items-center gap-3 text-mocha">
-              <span className="h-px w-10 bg-current" />
+            <p className="eyebrow mb-6 text-mocha">
               {t.eyebrow}
             </p>
           </Reveal>
           <SplitReveal text={t.title} className="text-display-lg" />
         </div>
-        <Reveal delay={0.1}>
-          <p className="inline-flex items-center gap-2 rounded-full border border-caramel/40 bg-foam px-4 py-2 text-xs tracking-wide text-caramel">
-            <span className="size-1.5 rounded-full bg-caramel" />
-            {t.note}
-          </p>
-        </Reveal>
       </div>
 
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
@@ -61,9 +54,6 @@ export function Menu({ t }: { t: Dictionary["menu"] }) {
                 <Image src={image} alt={tab.imageAlt} fill sizes="40vw" placeholder="blur" className="object-cover" />
               </motion.div>
             </AnimatePresence>
-            <span className="absolute bottom-5 left-5 rounded-full bg-cream/90 px-4 py-2 font-display text-lg font-medium backdrop-blur">
-              {tab.label}
-            </span>
           </div>
         </div>
 
@@ -73,7 +63,7 @@ export function Menu({ t }: { t: Dictionary["menu"] }) {
             role="tablist"
             aria-label={t.eyebrow}
             onKeyDown={onKeyDown}
-            className="relative mb-10 flex gap-1 overflow-x-auto rounded-full border border-espresso/15 p-1 [scrollbar-width:none]"
+            className="relative mb-10 flex gap-8 overflow-x-auto border-b border-espresso/15 [scrollbar-width:none]"
           >
             {t.tabs.map((tb, i) => {
               const selected = i === active;
@@ -90,18 +80,18 @@ export function Menu({ t }: { t: Dictionary["menu"] }) {
                   aria-controls={`${uid}-panel`}
                   tabIndex={selected ? 0 : -1}
                   onClick={() => setActive(i)}
-                  className={`relative flex-1 whitespace-nowrap rounded-full px-5 py-3 text-sm transition-colors duration-300 ${
-                    selected ? "text-cream" : "text-espresso/70 hover:text-espresso"
+                  className={`relative whitespace-nowrap pb-4 font-display text-xl font-medium transition-colors duration-300 ${
+                    selected ? "text-espresso" : "text-espresso/45 hover:text-espresso"
                   }`}
                 >
+                  {tb.label}
                   {selected && (
                     <motion.span
-                      layoutId={`${uid}-pill`}
-                      className="absolute inset-0 rounded-full bg-espresso"
+                      layoutId={`${uid}-indicator`}
+                      className="absolute inset-x-0 -bottom-px h-0.5 bg-espresso"
                       transition={{ type: "spring", stiffness: 380, damping: 34 }}
                     />
                   )}
-                  <span className="relative">{tb.label}</span>
                 </button>
               );
             })}

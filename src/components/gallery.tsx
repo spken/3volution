@@ -27,8 +27,7 @@ export function Gallery({ t }: { t: Dictionary["gallery"] }) {
       <div className="mx-auto mb-14 flex max-w-[1600px] flex-col justify-between gap-6 px-5 sm:px-8 lg:mb-20 lg:flex-row lg:items-end lg:px-12">
         <div>
           <Reveal>
-            <p className="eyebrow mb-6 flex items-center gap-3 text-mocha">
-              <span className="h-px w-10 bg-current" />
+            <p className="eyebrow mb-6 text-mocha">
               {t.eyebrow}
             </p>
           </Reveal>

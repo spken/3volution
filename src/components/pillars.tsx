@@ -9,8 +9,7 @@ export function Pillars({ t }: { t: Dictionary["pillars"] }) {
       <div className="mb-16 grid gap-8 lg:mb-24 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <Reveal>
-            <p className="eyebrow mb-6 flex items-center gap-3 text-mocha">
-              <span className="h-px w-10 bg-current" />
+            <p className="eyebrow mb-6 text-mocha">
               {t.eyebrow}
             </p>
           </Reveal>
@@ -25,12 +24,9 @@ export function Pillars({ t }: { t: Dictionary["pillars"] }) {
         {t.items.map((item, i) => (
           <li key={item.numeral} className="group bg-cream">
             <Reveal delay={i * 0.12} className="flex h-full flex-col p-6 sm:p-8 lg:p-10">
-              <div className="flex items-start justify-between">
-                <span className="font-display text-[clamp(3.5rem,6vw,5.5rem)] font-semibold leading-none tracking-tight">
-                  {item.numeral}
-                </span>
-                <span className="eyebrow mt-3 text-espresso/50">0{i + 1} / 03</span>
-              </div>
+              <span className="font-display text-[clamp(3.5rem,6vw,5.5rem)] font-semibold leading-none tracking-tight">
+                {item.numeral}
+              </span>
 
               <div className="relative my-8 aspect-[4/3] overflow-hidden rounded-[1.25rem] bg-latte">
                 <Image
