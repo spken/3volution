@@ -69,7 +69,7 @@ Logo (500×500 PNG, RGBA, dark-brown tile): https://coiffeur3volution.ch/wp-cont
 
 ## 3. Decisions (confirmed by developer, 2026-11-14)
 
-- **Address:** same as hairdresser: Boulevard Lilienthal 39, CH-8152 Glattpark (coffee shop is the unit next door).
+- **Address:** same as hairdresser: Boulevard Lilienthal 39, CH-8152 Glattpark (coffee bar is inside the salon – one shop, not next door; confirmed by client 2026-11-14).
 - **Photos:** stock coffee photos as placeholders (e.g. Unsplash/Pexels, swap for real photos later).
 - **Logo:** reuse the existing 3volution logo for now (tagline "HAIR · BEAUTY · NAIL" is wrong for coffee; crop or replace later).
 - **Languages:** German + English (DE default, EN toggle; use Swiss spelling "ss", no "ß").
@@ -84,12 +84,24 @@ Logo (500×500 PNG, RGBA, dark-brown tile): https://coiffeur3volution.ch/wp-cont
 - **Cross-link:** link to hairdresser site (https://coiffeur3volution.ch/) from header/footer/contact. Hairdresser site linking back is the client's call, not our work.
 - **Impressum:** build from known details only: 3volution, Boulevard Lilienthal 39, CH-8152 Glattpark, tel, e-mail. Owner name and UID unknown; leave visible TODO placeholders, don't invent. Datenschutz: generic draft, flag for client/legal review.
 
+## 3b. Instagram @3volution_ (read 2026-11-14)
+
+Shared account for the whole shop (display name "3Volution |", 954 followers, 6 posts). Spelling on IG is **"3Volution"** (capital V); site keeps "3volution" (decided 2026-11-14).
+
+- **Bio:** "HAIR • BEAUTY • SPECIALTY COFFE ☕️ • MATCHA AND MORE · 📍 Glattpark Zürich · ✂️ @2ba_special • 💄 @derya_3volution". Highlights: HAIR, BEAUTY, COFFEE, MENU, TEAM, INFO (stories, need login).
+- **Concept:** "HAIR • BEAUTY • COFFEE – Drei Welten. Ein Ort." / "Alles an einem Ort." "3Volution wächst – und wird mehr als Hair & Beauty." "Ein Ort zum Ankommen, Wohlfühlen, Verschönern und Geniessen." Sign-off "Welcome to 3Volution. 🤎"
+- **Coffee offer (grand-opening post):** Specialty Coffee, Matcha, Iced Coffee, türkischer Çay, feine Desserts. Hashtag #3VolutionCoffee.
+- **Grand opening:** Sunday 8 Nov 2026, 13:00–17:00, every coffee CHF 1.–, guest "Helva on Ice" (one-off, not on the regular menu), DJ.
+- **Team:** hair = @2ba_special (Tugba Cakmak); beauty = lashes & brows by @derya_3volution. No nails mentioned on IG (hairdresser site still says "Nail").
+- **Reel line used on site:** "Erst Beauty. Dann Hair. Und zum Schluss? Coffee."
+- Not on IG: opening hours, prices, full menu (MENU highlight is login-only).
+
 ## 4. Still missing (need from client; use placeholders meanwhile)
 
 Nothing of the following exists on the hairdresser site:
 - Coffee shop name (e.g. "3volution Coffee"?), tagline
 - Opening hours, phone, e-mail, Instagram/Google Maps listing for the coffee shop (phone/mail may be shared with hairdresser)
-- Menu (drinks, food, prices, allergens), beans/roaster, specialties
+- Menu (full list, prices, allergens), beans/roaster. Known from IG: specialty coffee, matcha, iced coffee, Turkish çay, desserts
 - About text / story / team
 - Impressum details (owner, UID) and Datenschutz text
 - Cross-links to the hairdresser site (undecided)
