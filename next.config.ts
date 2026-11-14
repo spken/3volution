@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    // [lang] is the root layout, so unmatched URLs need a standalone 404
+    globalNotFound: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
