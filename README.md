@@ -1,32 +1,36 @@
-# 3volution Coffee
+# 3volution
 
-Landing page for 3volution Coffee, Boulevard Lilienthal 39, Glattpark. Next.js 16 (App Router, Cache Components), Tailwind v4, Motion and Lenis.
-Brand facts and decisions: see [BRAND-INFO.md](./BRAND-INFO.md).
+Two landing pages for 3volution, Boulevard Lilienthal 39, Glattpark. One npm workspace, two independent Next.js 16 apps.
 
-## Where things live
+| App | Folder | Dev port | Planned domain |
+|---|---|---|---|
+| 3volution Coffee | [`apps/coffee`](./apps/coffee) | 3000 | `coffee.<domain>` |
+| Coiffeur 3volution | [`apps/coiffeur`](./apps/coiffeur) | 3001 | `coiffeur.<domain>` |
 
-| What | File |
-|---|---|
-| All copy (DE / EN) | `src/i18n/dictionaries/de.ts` (source of truth), `en.ts` |
-| Address, phone, links | `src/lib/site.ts` |
-| Photos | `src/assets/images/*.jpg`, wired in `src/lib/images.ts` |
-| Colours, fonts, type scale | `src/app/globals.css` (`@theme`) |
-| Sections | `src/components/*.tsx`, composed in `src/app/[lang]/page.tsx` |
-| Locale redirect (`/` → `/de` or `/en`) | `src/proxy.ts` |
-
-## Placeholders to replace before launch
-
-- **Photos**: Unsplash stock. Replace the files in `src/assets/images/` and keep the same names.
-- **Menu and prices**: `menu.tabs` in both dictionaries. Remove `menu.note` once the prices are real.
-- **Opening hours**: `visit.hours` and `visit.hoursNote`. Add `openingHours` to the JSON-LD in `page.tsx`.
-- **Story copy**: draft, needs client approval.
-- **Impressum**: owner name and UID (TODO markers in `src/app/[lang]/impressum/page.tsx`).
-- **Datenschutz**: generic draft that needs legal review.
-- **Domain**: set `SITE_URL=https://…` to enable the canonical URL and hreflang alternates.
-- **Footer year**: hard-coded to 2026 in `src/components/footer.tsx`.
+Brand facts, palette and client decisions for both: [BRAND-INFO.md](./BRAND-INFO.md).
 
 ## Develop
 
 ```bash
-npm run dev
+npm install            # once, at the repo root
+npm run dev:coffee     # http://localhost:3000
+npm run dev:coiffeur   # http://localhost:3001
+npm run build          # builds both
 ```
+
+## Deploy (one project per app)
+
+Each app deploys on its own, e.g. two Vercel projects from this repo:
+
+- Root directory `apps/coffee` → domain `coffee.<domain>`
+- Root directory `apps/coiffeur` → domain `coiffeur.<domain>`
+
+DNS: a CNAME per subdomain pointing at the host. Per-app environment variables (see each app's `.env.example`):
+
+| Variable | coffee | coiffeur |
+|---|---|---|
+| `SITE_URL` | `https://coffee.<domain>` | `https://coiffeur.<domain>` |
+| `NEXT_PUBLIC_COIFFEUR_URL` | `https://coiffeur.<domain>` | – |
+| `NEXT_PUBLIC_COFFEE_URL` | – | `https://coffee.<domain>` |
+
+The apps share no code yet: components were copied and are expected to diverge. If shared pieces grow (brand SVGs, tokens, legal shell), extract them into `packages/`.
