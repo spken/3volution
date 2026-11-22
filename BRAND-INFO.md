@@ -1,4 +1,6 @@
-# 3volution Coffee – Brand & Site Info
+# 3volution – Brand & Site Info (coffee + coiffeur)
+
+Apps: `apps/coffee` (3volution Coffee) and `apps/coiffeur` (Coiffeur 3volution). Paths like `src/...` below refer to `apps/coffee` unless stated.
 
 Source: https://coiffeur3volution.ch/ (hairdresser sister shop), scraped 2026-11-14.
 The source site contains **nothing about the coffee shop**. Only brand, location and shared-business info is reusable. Coffee-specific content (menu, hours, photos, copy) must come from the client.
@@ -73,16 +75,44 @@ Logo (500×500 PNG, RGBA, dark-brown tile): https://coiffeur3volution.ch/wp-cont
 - **Photos:** stock coffee photos as placeholders (e.g. Unsplash/Pexels, swap for real photos later).
 - **Logo:** reuse the existing 3volution logo for now (tagline "HAIR · BEAUTY · NAIL" is wrong for coffee; crop or replace later).
 - **Languages:** German + English (DE default, EN toggle; use Swiss spelling "ss", no "ß").
-- **Scope:** informational only. No ordering, reservations or booking.
+- **Scope:** informational only. No ordering, reservations or booking. *(Superseded 2026-11-18: WhatsApp booking, SumUp planned, see §3a.)*
 - **Domain:** none yet. Build domain-agnostic (relative URLs, no hardcoded canonical until domain is set).
 - **Fonts:** Zilla Slab + Lato (see Typography). No Helvetica/Arial.
-- **Palette:** brown `#42321b` + cream `#f7efca` core (see section 2).
+- **Palette:** brown `#42321b` + cream `#f7efca` core (see section 2). *(Superseded 2026-11-18: fall palette, see §3a.)*
 - **Name:** "3volution Coffee".
 - **Contact:** shares hairdresser phone (+41 44 829 30 33) and e-mail (333volution@gmail.com).
-- **Hours:** unknown; use placeholder hours, marked clearly as TBC (do not copy hairdresser hours as fact).
+- **Hours:** unknown; use placeholder hours, marked clearly as TBC (do not copy hairdresser hours as fact). *(Superseded 2026-11-18: salon hours, see §3a.)*
 - **Menu:** placeholder items and prices, marked as examples until client supplies real menu.
 - **Cross-link:** link to hairdresser site (https://coiffeur3volution.ch/) from header/footer/contact. Hairdresser site linking back is the client's call, not our work.
 - **Impressum:** build from known details only: 3volution, Boulevard Lilienthal 39, CH-8152 Glattpark, tel, e-mail. Owner name and UID unknown; leave visible TODO placeholders, don't invent. Datenschutz: generic draft, flag for client/legal review.
+
+## 3a. Client feedback (2026-11-18), supersedes §3 where they differ
+
+- **Palette:** client likes the beige but is tired of the brown. Brown is retired; new fall palette:
+  beige `#f7efca` / `#fbf6df` / `#d5cda8` (kept), fall red `#9b3a23` (primary), deep red `#7d2416` (hover),
+  oxblood `#3a120d` (dark surfaces), senf/mustard `#cf9638` (accent), ink `#2b1613` (text).
+  Senf is decorative / surface-only on beige (2:1 contrast); tokens + contrast notes in `src/app/globals.css`.
+- **Booking / contact:** customers can request a spot via WhatsApp. **+41 76 243 13 88 is a test placeholder**, swap in the real number before launch.
+  Form on the page builds a prefilled WhatsApp message; nothing is stored on the site. Slots come from
+  `openingHours` in `src/lib/site.ts`. Datenschutz updated with a WhatsApp section.
+- **Hours:** same as the salon (Google listing, confirmed by developer 2026-11-18): Tue–Fri 09:00–19:00,
+  Sat 09:00–16:00, Sun + Mon closed. Supersedes the "hours unknown" note in §3.
+- **SumUp:** online payments planned (scope TBD: vouchers, pre-orders or deposits). Placeholder API routes
+  at `/api/payments/sumup/{checkout,webhook}` return 501; env vars in `.env.example`.
+
+## 3a-2. Coiffeur site (2026-11-22)
+
+- **New site** in `apps/coiffeur`, planned on its own subdomain (`coiffeur.<domain>`, coffee on `coffee.<domain>`).
+- **Palette:** same fall palette as coffee (beige kept, brown retired, fall red + senf). Coiffeur leans on oxblood surfaces with senf accents (dark hero, booking block); coffee leans on beige.
+- **Booking:** keeps Shore. Embedded iframe `https://connect.shore.com/widget/nolayout/3volution` (no X-Frame-Options, checked 2026-11-22), loads with the page, lazily (client asked for no click gate, 2026-11-22); full-page link `https://connect.shore.com/widget/3volution` as fallback.
+- **Photos:** salon's own photos from coiffeur3volution.ch (hair work, lashes, bridal), in `apps/coiffeur/src/assets/images`. Generic stock-looking makeup/nail images from that site not used.
+- **Design direction (2026-11-22, replaces the earlier copy of the coffee layout):** own identity, a fashion-editorial lookbook. Shared with coffee: palette, logo, Lato body text. Different from coffee:
+  - Headlines in **Fraunces** (roman + italic accent words), body in **Figtree** (the alternative pairing above), on a near-white page; beige kept for accents. Replaced Bodoni Moda + Lato on 2026-11-22 for legibility.
+  - Square-cut photos with "Fig. 0n" captions; no arches, pills, waves, beans, marquee or rotating badge.
+  - Numbered chapters "(01) Salon … (06) Kontakt", split hero (type left, full-height photo right), services as alternating chapters with sticky photos, an asymmetric lookbook spread, team as a credits list on oxblood, contact as a typeset colophon.
+  - Buttons are ink rectangles with tracked uppercase labels.
+- **Booking scroll fix:** Lenis sets `pointer-events: none` on iframes; `iframe[data-booking]` is re-enabled in `apps/coiffeur/src/app/globals.css`.
+- **Open:** client OK on copy, service list, team names; portraits / newer photos; whether the old domain coiffeur3volution.ch redirects to the new subdomain.
 
 ## 3b. Instagram @3volution_ (read 2026-11-14)
 

@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "coffee", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev:coffee"], "port": 3000 },
+    { "name": "coiffeur", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev:coiffeur"], "port": 3001 }
+  ]
+}
